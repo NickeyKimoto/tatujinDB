@@ -1,0 +1,7 @@
+Q.ハードウェアリソースの情報を取得するためのOSコマンドを
+OS別に調べて整理する
+
+A.
+Linux：# dmidecode
+Mac OS X：$ system_profiler
+Windows：systeminfo

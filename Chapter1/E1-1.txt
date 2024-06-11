@@ -4,7 +4,7 @@ Q.現在使っているリレーショナルデータベースのDBMSについ�
 ③マニュアルの所在
 
 A.
-①使用しているDBMSのバージョン：MariaDB 10.4.28
-　最新バージョン：MariaDB 11.5.1 RC
-②エディション：Windows
-③マニュアルの所在：https://mariadb.com/kb/ja/mariadb/
+①使用しているDBMSのバージョン：10.4.28-MariaDB
+　最新バージョン：MySQL 8.0.37
+②エディション：for Win64 (AMD64)
+③マニュアルの所在：https://dev.mysql.com/doc/refman/8.0/en/

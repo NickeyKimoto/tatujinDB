@@ -74,3 +74,23 @@ VALUES
 	'日用雑貨'
 )
 ;
+
+CREATE TABLE
+	store_goods
+	(
+		支社コード CHAR(3),
+		支店コード CHAR(2),
+		商品コード CHAR(3),
+		PRIMARY KEY (支社コード,支店コード,商品コード)
+	)
+;
+
+INSERT INTO
+	store_goods
+VALUES
+(
+	'002',
+	'02',
+	'008'
+)
+;

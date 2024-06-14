@@ -3,23 +3,23 @@ Q.支社／支店別の取り扱い商品の一覧。結果には支社名、支
 
 A.
 SELECT
-	o.支社名,
-	sn.支店名,
-	g.商品名
+	o.office_name AS 支社名,
+	sn.store_name AS 支店名,
+	g.goods_name AS 商品名
 FROM
 	stores AS sn
 INNER JOIN
 	offices AS o
 ON
-	sn.支社コード = o.支社コード
+	sn.office_id = o.office_id
 INNER JOIN
 	store_goods AS sg
 ON
-	(sn.支社コード,sn.支店コード) = (sg.支社コード,sg.支店コード)
+	(sn.office_id,sn.store_id) = (sg.office_id,sg.store_id)
 LEFT JOIN
 	goods AS g
 ON
-	sg.商品コード = g.商品コード
+	sg.goods_id = g.goods_id
 ;
 
 実行結果

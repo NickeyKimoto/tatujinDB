@@ -2,13 +2,13 @@ Q.最も取り扱い商品数が多い支店の支店コードと商品数
 
 A.
 SELECT
-	支店コード,
+	store_id AS 支店コード,
 	COUNT(*) AS 商品数
 FROM
 	store_goods
 GROUP BY
-	支社コード,
-	支店コード
+	office_id,
+	store_id
 HAVING
 	count(*) >=
 	ALL
@@ -18,8 +18,8 @@ HAVING
 		FROM
 			store_goods
 		GROUP BY
-			支社コード,
-			支店コード
+			office_id,
+			store_id
 	)
 ;
 

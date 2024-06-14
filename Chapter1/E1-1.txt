@@ -5,6 +5,6 @@ Q.現在使っているリレーショナルデータベースのDBMSについ�
 
 A.
 ①使用しているDBMSのバージョン：10.4.28-MariaDB
-　最新バージョン：MySQL 8.0.37
-②エディション：for Win64 (AMD64)
-③マニュアルの所在：https://dev.mysql.com/doc/refman/8.0/en/
+　最新バージョン：MariaDB 11.5.1 RC
+②エディション：Community Edition
+③マニュアルの所在：https://mariadb.com/kb/ja/mariadb/

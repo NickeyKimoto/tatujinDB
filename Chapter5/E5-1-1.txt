@@ -2,18 +2,18 @@ Q.商品分類ごとの商品数(分類名を含む)
 
 A.
 SELECT
-	gi.分類名,
-	COUNT(gc.商品分類コード) AS 商品数
+	gt.goods_type_name AS 分類名,
+	COUNT(gc.goods_type_id) AS 商品数
 FROM
 	goods AS gc
 INNER JOIN
-	goods_id AS gi
+	goods_type AS gt
 ON
-	gc.商品分類コード = gi.商品分類コード
+	gc.goods_type_id = gt.goods_type_id
 GROUP BY
-	gi.分類名
+	gt.goods_type_name
 ORDER BY
-	COUNT(gc.商品分類コード) DESC
+	COUNT(gc.goods_type_id) DESC
 ;
 
 実行結果

@@ -1,0 +1,10 @@
+Q.DBMSごとのインデックスの再編成を実施するための具体的な方法を
+調べる
+
+A.
+MySQL：OPTIMIZE TABLE <テーブル名>;(MySQLではインデックスの再編成
+のためにテーブルごと再編成する)
+PostgreSQL：REINDEX<インデックス名>;
+SQL Server：
+ALTER INDEX ALL ON <テーブル名>
+REBUILD;

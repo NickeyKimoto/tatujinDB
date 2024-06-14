@@ -1,47 +1,42 @@
+CREATE DATABASE tatujinDB CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
 CREATE TABLE
 	offices
 	(
-		支社コード CHAR(3) PRIMARY KEY,
-		支社名 VARCHAR(30) NULL
+		office_id CHAR(3) PRIMARY KEY,
+		office_name VARCHAR(30) NULL
 	)
 ;
 
 INSERT INTO
 	offices
 VALUES
-(
-	'002',
-	'大阪'
-)
+	('001','東京'), ('002','大阪')
 ;
 
 CREATE TABLE
 	stores
 	(
-		支社コード CHAR(3),
-		支店コード CHAR(2),
-		支店名 VARCHAR(30) NULL,
-		PRIMARY KEY (支社コード, 支店コード)
+		office_id CHAR(3),
+		store_id CHAR(2),
+		store_name VARCHAR(30) NULL,
+		PRIMARY KEY (office_id, store_id)
 	)
 ;
 
 INSERT INTO
 	stores
 VALUES
-(
-	'001',
-	'01',
-	'渋谷'
-)
+	('001','01','渋谷'), ('001', '02', '八重洲'), ('002', '01', '堺'), ('002', '02', '豊中')
 ;
 
 CREATE TABLE
 	goods
 	(
-		商品コード CHAR(3),
-		商品名 VARCHAR(30) NULL,
-		商品分類コード VARCHAR(2) NULL,
-		PRIMARY KEY (商品コード)
+		goods_id CHAR(3),
+		goods_name VARCHAR(30) NULL,
+		goods_type_id VARCHAR(2) NULL,
+		PRIMARY KEY (goods_id)
 	)
 ;
 
@@ -51,44 +46,33 @@ VALUES
 ('001','石鹸','C1'),('002','タオル','C1'),('003','ハブラシ','C1'),('004','コップ','C1'),('005','箸','C2'),('006','スプーン','C2'),('007','雑誌','C3'),('008','爪切り','C4')
 ;
 
-select 商品コード, 商品名, 支店名 as 商品分類コード from goods;
-
 CREATE TABLE
-	goods_id
+	goods_type
 	(
-		商品分類コード CHAR(2),
-		分類名 VARCHAR(30) NULL,
-		PRIMARY KEY (商品分類コード)
+		goods_type_id CHAR(2),
+		goods_type_name VARCHAR(30) NULL,
+		PRIMARY KEY (goods_type_id)
 	)
 ;
 
 INSERT INTO
-	goods_id
+	goods_type
 VALUES
-(
-	'C4',
-	'日用雑貨'
-)
+	('C1', '水洗用品'), ('C2', '食器'), ('C3', '書籍'), ('C4', '日用雑貨')
 ;
 
 CREATE TABLE
 	store_goods
 	(
-		支社コード CHAR(3),
-		支店コード CHAR(2),
-		商品コード CHAR(3),
-		PRIMARY KEY (支社コード,支店コード,商品コード)
+		office_id CHAR(3),
+		store_id CHAR(2),
+		goods_id CHAR(3),
+		PRIMARY KEY (office_id, store_id, goods_id)
 	)
 ;
 
 INSERT INTO
 	store_goods
 VALUES
-(
-	'002',
-	'02',
-	'008'
-)
+	('001', '01', '001'), ('001', '01', '002'), ('001', '01', '003'), ('001', '02', '002'), ('001', '02', '003'), ('001', '02', '004'), ('001', '02', '005'), ('001', '02', '006'), ('02', '01', '001'), ('002', '01', '002'), ('002', '02', '007'), ('002', '02', '008')
 ;
-
-CREATE DATABASE tatujinDB CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;

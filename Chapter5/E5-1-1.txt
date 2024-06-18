@@ -1,18 +1,31 @@
 Q.商品分類ごとの商品数(分類名を含む)
 
 A.
+/*テーブル内のデータを取得*/
 SELECT
+	/*分類名と命名し分類名カラムを指定*/
 	gt.goods_type_name AS 分類名,
+	/*商品数と命名し集計されたカラムを指定*/
 	COUNT(gc.goods_type_id) AS 商品数
+/*テーブルを指定*/
 FROM
+	/*商品テーブルを指定*/
 	goods AS gc
+/*内部結合をする*/
 INNER JOIN
+	/*商品分類テーブルを指定*/
 	goods_type AS gt
+/*結合するキーを指定*/
 ON
+	/*商品分類コードを指定*/
 	gc.goods_type_id = gt.goods_type_id
+/*特定のキーでグルーピング*/
 GROUP BY
+	/*商品分類名を指定*/
 	gt.goods_type_name
+/*データを並べ替える*/
 ORDER BY
+	/*商品分類コードごとに集計された列を数の多い順にソート*/
 	COUNT(gc.goods_type_id) DESC
 ;
 

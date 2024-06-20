@@ -2,41 +2,25 @@ Q.支社／支店別の取り扱い商品の一覧。結果には支社名、支
 を含むものとする。
 
 A.
-/*テーブル内のデータを取得*/
+/*それぞれのコードの名前を持ったテーブルを内部結合し、
+支社名、支店名、商品名がわかるデータを取り出す*/
 SELECT
-	/*支社名と命名し、支社名カラムを指定*/
 	o.office_name AS 支社名,
-	/*支店名と命名し、支店名カラムを指定*/
 	sn.store_name AS 支店名,
-	/*商品名と命名し、商品名カラムを指定*/
 	g.goods_name AS 商品名
-/*テーブルを指定*/
 FROM
-	/*支店テーブルを指定*/
 	stores AS sn
-/*内部結合をする*/
 INNER JOIN
-	/*支社テーブルを指定*/
 	offices AS o
-/*結合するキーを指定*/
 ON
-	/*支社コードを指定*/
 	sn.office_id = o.office_id
-/*内部結合をする*/
 INNER JOIN
-	/*支店テーブルを指定*/
 	store_goods AS sg
-/*結合するキーを指定*/
 ON
-	/*支社コードと支店コードを指定*/
 	(sn.office_id,sn.store_id) = (sg.office_id,sg.store_id)
-/*左外部結合をする*/
 LEFT JOIN
-	/*商品テーブルを指定*/
 	goods AS g
-/*結合するキーを指定*/
 ON
-	/*商品コードを指定*/
 	sg.goods_id = g.goods_id
 ;
 

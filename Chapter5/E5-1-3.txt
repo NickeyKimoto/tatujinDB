@@ -12,7 +12,7 @@ GROUP BY
 	office_id,
 	store_id
 HAVING
-	count(*) >= ALL
+	COUNT(*) >= ALL
 	(
 		SELECT
 			COUNT(*)

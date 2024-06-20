@@ -6,5 +6,5 @@ Q.現在使っているリレーショナルデータベースのDBMSについ�
 A.
 ①使用しているDBMSのバージョン：10.4.28-MariaDB
 　最新バージョン：MariaDB 11.5.1 RC
-②エディション：MariaDB FOUNDATION
+②エディション： Win64 (AMD64)
 ③マニュアルの所在：https://mariadb.com/kb/ja/mariadb/
